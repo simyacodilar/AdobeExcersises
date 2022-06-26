@@ -1,0 +1,43 @@
+FILE: /var/www/html/magento244/app/code/Unit3/ProductViewDescriptionPlugin/registration.php
+-------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+-------------------------------------------------------------------------------------------
+  4 | WARNING | [ ] Copyright is missing or has wrong format
+ 11 | WARNING | [x] Expected 1 newline at end of file; 0 found
+-------------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+-------------------------------------------------------------------------------------------
+
+
+FILE: /var/www/html/magento244/app/code/Unit3/ProductViewDescriptionPlugin/Block/Product/View/Description.php
+-----------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 6 WARNINGS AFFECTING 6 LINES
+-----------------------------------------------------------------------------------------------------------------------
+  4 | WARNING | [ ] Copyright is missing or has wrong format
+ 11 | WARNING | [ ] Tag @package MUST NOT be used.
+ 13 | WARNING | [ ] Class description must contain meaningful information beyond what its name provides or be removed.
+ 15 | WARNING | [ ] Missing short description
+ 16 | WARNING | [ ] There must be exactly one blank line before tags
+ 22 | WARNING | [x] Expected 1 newline at end of file; 0 found
+-----------------------------------------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+-----------------------------------------------------------------------------------------------------------------------
+
+
+FILE: /var/www/html/magento244/app/code/Unit3/ProductViewDescriptionPlugin/etc/frontend/di.xml
+----------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+----------------------------------------------------------------------------------------------
+  | WARNING | Copyright is missing or has wrong format
+----------------------------------------------------------------------------------------------
+
+
+FILE: /var/www/html/magento244/app/code/Unit3/ProductViewDescriptionPlugin/etc/module.xml
+-----------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+-----------------------------------------------------------------------------------------
+  | WARNING | Copyright is missing or has wrong format
+-----------------------------------------------------------------------------------------
+
+Time: 136ms; Memory: 16MB
+
