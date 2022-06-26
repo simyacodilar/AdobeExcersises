@@ -1,3 +1,10 @@
-<div style="background: <?php echo $this->getData('background_color'); ?>; color: <?php $this->getData('color');  ?>">
-        <?php echo __('welcome to our store!!!'); ?>
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<div style="background: <?= /* @noEscape */ $block->getData('background_color'); ?>;
+    color: <?= /* @noEscape */ $block->getData('color'); ?>">
+        <?= /* @noEscape */  __('welcome to our store!!!'); ?>
 </div>
