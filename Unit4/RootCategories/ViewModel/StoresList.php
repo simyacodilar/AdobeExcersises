@@ -12,6 +12,12 @@ use \Magento\Store\Model\StoreManager;
 
 class StoresList implements ArgumentInterface
 {
+    /**
+     * Constructor method
+     *
+     * @param CategoryFactory $categoryFactory
+     * @param StoreManager $storeManager
+     */
     public function __construct(
         CategoryFactory $categoryFactory,
         StoreManager $storeManager
@@ -20,6 +26,12 @@ class StoresList implements ArgumentInterface
         $this->storeManager    = $storeManager;
     }
 
+    /**
+     * Function to return root categories and store views
+     *
+     * @return string
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
     public function getRootCategories()
     {
         $storesList = $this->storeManager->getStores();
@@ -34,8 +46,7 @@ class StoresList implements ArgumentInterface
             ];
         }
 
-        $stores = array_map(function($item)
-        {
+        $stores = array_map(function ($item) {
             $string = '<b>STORE</b> ' . $item['store_name'] . '<br>';
             $string .= ' <b>ROOT CATEGORY</b> ' . $item['root_category_name'] . '<br> <br>';
 
@@ -45,5 +56,4 @@ class StoresList implements ArgumentInterface
         $response = implode('', $stores);
         return $response;
     }
-
 }

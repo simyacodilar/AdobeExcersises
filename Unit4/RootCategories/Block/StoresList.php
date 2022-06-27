@@ -5,6 +5,7 @@
  */
 
 namespace Unit4\RootCategories\Block;
+
 use Magento\Catalog\Api\Data\CategoryInterface;
 use Magento\Framework\View\Element\Template\Context;
 
@@ -19,6 +20,7 @@ class StoresList extends \Magento\Framework\View\Element\Template
      * Template constructor.
      *
      * @param CategoryInterface $catalogCategory
+     * @param Context $context
      */
     public function __construct(CategoryInterface $catalogCategory, Context $context)
     {
@@ -27,7 +29,7 @@ class StoresList extends \Magento\Framework\View\Element\Template
     }
 
     /**
-     *Function used to render all store views and its root categories
+     * Function used to render all store views and its root categories
      *
      * @return string
      */
@@ -45,8 +47,7 @@ class StoresList extends \Magento\Framework\View\Element\Template
             ];
         }
 
-        $stores = array_map(function($item)
-        {
+        $stores = array_map(function ($item) {
             $string = '<b>STORE</b> ' . $item['store_name'];
             $string .= ' <b>ROOT CATEGORY</b> ' . $item['root_category_name'] . '<br>';
 

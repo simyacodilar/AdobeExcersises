@@ -4,5 +4,5 @@
  * See COPYING.txt for license details.
  */
 ?>
-<?php $viewModel = $this->getViewModel(); ?>
-<?php echo $viewModel->getRootCategories(); ?>
+<?php $viewModel = $block->getViewModel(); ?>
+<?= /* @noEscape */ $viewModel->getRootCategories(); ?>
