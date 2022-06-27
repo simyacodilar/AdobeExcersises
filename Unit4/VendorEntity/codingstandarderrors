@@ -1,0 +1,27 @@
+FILE: /var/www/html/magento244/app/code/Unit4/VendorEntity/etc/db_schema.xml
+----------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+----------------------------------------------------------------------------
+  | WARNING | Copyright is missing or has wrong format
+----------------------------------------------------------------------------
+
+
+FILE: /var/www/html/magento244/app/code/Unit4/VendorEntity/Setup/Patch/Data/Vendors.php
+-----------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+-----------------------------------------------------------------------------------------------------------
+ 37 | WARNING | [x] Opening parenthesis of a multi-line function call must be the last content on the line
+-----------------------------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+-----------------------------------------------------------------------------------------------------------
+
+
+FILE: /var/www/html/magento244/app/code/Unit4/VendorEntity/Setup/Patch/Schema/VendorColumn.php
+----------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+----------------------------------------------------------------------------------------------
+ 37 | WARNING | [x] Only one argument is allowed per line in a multi-line function call
+----------------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------------------------------
+
