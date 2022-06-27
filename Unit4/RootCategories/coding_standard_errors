@@ -1,0 +1,49 @@
+FILE: /var/www/html/magento244/app/code/Unit4/RootCategories/Block/StoresList.php
+------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 5 WARNINGS AFFECTING 5 LINES
+------------------------------------------------------------------------------------
+  7 | WARNING | [x] There must be one blank line after the namespace declaration
+ 23 | WARNING | [ ] @param is not found for one or more params in method annotation
+ 30 | WARNING | [x] Expected 1 space after asterisk; 0 found
+ 48 | WARNING | [x] Expected 1 space after FUNCTION keyword; 0 found
+ 49 | WARNING | [x] Opening brace should be on the same line as the declaration
+------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+------------------------------------------------------------------------------------
+
+
+FILE: /var/www/html/magento244/app/code/Unit4/RootCategories/etc/frontend/routes.xml
+------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+------------------------------------------------------------------------------------
+  | WARNING | Copyright is missing or has wrong format
+------------------------------------------------------------------------------------
+
+
+FILE: /var/www/html/magento244/app/code/Unit4/RootCategories/view/frontend/templates/categories.phtml
+-----------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 3 WARNINGS AFFECTING 2 LINES
+-----------------------------------------------------------------------------------------------------
+ 7 | WARNING | [x] The use of $this in templates is deprecated. Use $block instead.
+ 8 | WARNING | [ ] Short echo tag syntax must be used; expected "<?=" but found "<?php echo"
+ 8 | WARNING | [ ] Unescaped output detected.
+-----------------------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+-----------------------------------------------------------------------------------------------------
+
+
+FILE: /var/www/html/magento244/app/code/Unit4/RootCategories/ViewModel/StoresList.php
+--------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 5 WARNINGS AFFECTING 5 LINES
+--------------------------------------------------------------------------------------------
+ 15 | WARNING | [ ] Comment block is missing
+ 23 | WARNING | [ ] Comment block is missing
+ 37 | WARNING | [x] Expected 1 space after FUNCTION keyword; 0 found
+ 38 | WARNING | [x] Opening brace should be on the same line as the declaration
+ 49 | WARNING | [x] The closing brace for the class must go on the next line after the body
+--------------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+--------------------------------------------------------------------------------------------
+
+Time: 312ms; Memory: 16MB
+
