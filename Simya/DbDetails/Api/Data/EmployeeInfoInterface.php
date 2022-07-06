@@ -23,8 +23,8 @@ interface EmployeeInfoInterface
     public const EMP_JOIN_AT = 'emp_join_at';
     public const EMP_SALARY = 'emp_salary';
     public const INSURANCE_PERCENT = 'insurance_percent';
-    public const ISACTIVE = 'is_active';
-    public const CREATEDAT = 'created_at';
+    public const IS_ACTIVE = 'is_active';
+    public const CREATED_AT = 'created_at';
 
     /**
      * Gets the EmpId.
@@ -33,13 +33,7 @@ interface EmployeeInfoInterface
      * @return int
      */
     public function getEmpId();
-    /**
-     * Sets the EmpId.
-     *
-     * @param  int $empId
-     * @return int
-     */
-    public function setEmpId($empId);
+
     /**
      * Gets the CompanyId
      *
@@ -47,13 +41,7 @@ interface EmployeeInfoInterface
      * @return int
      */
     public function getCompanyId();
-    /**
-     * Sets the CompanyId.
-     *
-     * @param  string $companyid
-     * @return string
-     */
-    public function setCompanyId($companyid);
+
     /**
      * Gets the Employee name
      *
@@ -61,13 +49,7 @@ interface EmployeeInfoInterface
      * @return string
      */
     public function getEmpName();
-    /**
-     * Sets the Employee name.
-     *
-     * @param  string $empName
-     * @return string
-     */
-    public function setEmpName($empName);
+
     /**
      * Gets the Employee DOb.
      *
@@ -75,13 +57,7 @@ interface EmployeeInfoInterface
      * @return string
      */
     public function getEmpDob();
-    /**
-     * Sets the Employee Dob
-     *
-     * @param  string $empDob
-     * @return string
-     */
-    public function setEmpDob($empDob);
+
     /**
      * Gets the Employee Address.
      *
@@ -89,13 +65,7 @@ interface EmployeeInfoInterface
      * @return string
      */
     public function getEmpAddress();
-    /**
-     * Sets the Employee Address
-     *
-     * @param  string $empAddress
-     * @return string
-     */
-    public function setEmpAddress($empAddress);
+
     /**
      * Gets the Employee Email.
      *
@@ -103,13 +73,7 @@ interface EmployeeInfoInterface
      * @return string
      */
     public function getEmpEmail();
-    /**
-     * Sets the Employee Email
-     *
-     * @param  string $empemail
-     * @return string
-     */
-    public function setEmpEmail($empemail);
+
     /**
      * Gets the Employee phone.
      *
@@ -117,27 +81,15 @@ interface EmployeeInfoInterface
      * @return string
      */
     public function getEmpPhn();
-    /**
-     * Sets the Employee phone
-     *
-     * @param  int $empPhn
-     * @return int
-     */
-    public function setEmpPhn($empPhn);
+
     /**
      * Gets the Employee Joinig Date.
      *
      * @api
      * @return string
      */
-    public function getEmpJoin();
-    /**
-     * Sets the Employee Joining Date
-     *
-     * @param  string $empjoin
-     * @return string
-     */
-    public function setEmpJoin($empjoin);
+    public function getEmpJoinAt();
+
     /**
      * Gets the Employee Salary.
      *
@@ -145,27 +97,15 @@ interface EmployeeInfoInterface
      * @return string
      */
     public function getEmpSalary();
-    /**
-     * Sets the Employee Salary
-     *
-     * @param  string $empsal
-     * @return string
-     */
-    public function setEmpSalary($empsal);
+
     /**
      * Gets the Employee Insurance Rate.
      *
      * @api
      * @return string
      */
-    public function getEmpInsurance();
-    /**
-     * Sets the Employee Insurance Rate
-     *
-     * @param  string $empinsurance
-     * @return string
-     */
-    public function setEmpInsurance($empinsurance);
+    public function getInsurancePercent();
+
     /**
      * Gets the Employee Active.
      *
@@ -173,25 +113,13 @@ interface EmployeeInfoInterface
      * @return string
      */
     public function getIsActive();
-    /**
-     * Sets the Employee Active
-     *
-     * @param  string $isactive
-     * @return string
-     */
-    public function setIsActive($isactive);
+
     /**
      * Gets the Employee Created Time.
      *
      * @api
      * @return string
      */
-    public function getCreted();
-    /**
-     * Sets the Employee Created Time
-     *
-     * @param  string $created
-     * @return string
-     */
-    public function setCreted($created);
+    public function getCreatedAt();
+
 }

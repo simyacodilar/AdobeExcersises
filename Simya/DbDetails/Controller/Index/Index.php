@@ -61,6 +61,7 @@ class Index implements ActionInterface
 
         } else {
             $resultJson = $this->resultJsonFactory->create();
+            //return $resultJson->setData($employeedetail);
             return $resultJson->setData([
                 'Employee Id' => $employeedetail->getEmpId(),
                 'name' => $employeedetail->getEmpName(),
@@ -69,11 +70,11 @@ class Index implements ActionInterface
                 'Address' => $employeedetail->getEmpAddress(),
                 'Email' => $employeedetail->getEmpEmail(),
                 'Phone' => $employeedetail->getEmpPhn(),
-                'joining Date'=>$employeedetail->getEmpJoin(),
+                'joining Date'=> $employeedetail->getEmpJoinAt(),
                 'Salary' => $employeedetail->getEmpSalary(),
-                'Insurance rate' => $employeedetail->getEmpInsurance(),
+                'Insurance rate' => $employeedetail->getInsurancePercent(),
                 'Is Active' => $employeedetail->getIsActive(),
-                'created At' => $employeedetail->getCreted()
+                'created At' => $employeedetail->getCreatedAt()
             ]);
         }
     }

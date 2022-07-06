@@ -8,7 +8,7 @@
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
     <table name="employee_info" resource="default" engine="innodb" comment="Employee Info Table">
-        <column xsi:type="int" name="emp_id" unsigned="false" nullable="false" identity="false" comment="Employee Id"/>
+        <column xsi:type="int" name="emp_id" unsigned="true" nullable="false" identity="true" comment="Employee Id"/>
         <column xsi:type="smallint" name="company_id" unsigned="true" nullable="true" identity="false"
                 comment="Company ID"/>
         <column xsi:type="varchar" name="emp_name" nullable="true" length="255" comment="Employee Name"/>
