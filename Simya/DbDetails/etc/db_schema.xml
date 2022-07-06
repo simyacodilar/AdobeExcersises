@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="employee_info" resource="default" engine="innodb" comment="Employee Info Table">
+        <column xsi:type="int" name="emp_id" unsigned="false" nullable="false" identity="false" comment="Employee Id"/>
+        <column xsi:type="smallint" name="company_id" unsigned="true" nullable="true" identity="false"
+                comment="Company ID"/>
+        <column xsi:type="varchar" name="emp_name" nullable="true" length="255" comment="Employee Name"/>
+        <column xsi:type="date" name="emp_dob" nullable="false" comment="DOB"/>
+        <column xsi:type="text" name="emp_address" nullable="false" comment="Address"/>
+        <column xsi:type="varchar" name="emp_email" nullable="false" comment="Email"/>
+        <column xsi:type="varchar" name="emp_phn" nullable="false" length="255" comment="Phone Number"/>
+        <column xsi:type="datetime" name="emp_join_at" on_update="false" nullable="true"
+                comment="Employee Join Time"/>
+        <column xsi:type="decimal" name="emp_salary" scale="2" precision="10" unsigned="false" nullable="true"
+                comment="Max Price"/>
+        <column xsi:type="float" name="insurance_percent" unsigned="false" nullable="true" comment="Insurance amount Percent"/>
+        <column xsi:type="boolean" name="is_active" nullable="false" default="false" comment="Is Employee Active"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="true"
+                comment="Entry Created"/>
+    </table>
+</schema>
