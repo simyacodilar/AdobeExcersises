@@ -24,5 +24,8 @@
         <column xsi:type="boolean" name="is_active" nullable="false" default="false" comment="Is Employee Active"/>
         <column xsi:type="timestamp" name="created_at" on_update="false" nullable="true"
                 comment="Entry Created"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="emp_id"/>
+        </constraint>
     </table>
 </schema>
