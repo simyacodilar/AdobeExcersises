@@ -19,4 +19,18 @@ interface EmployeeInfoRepositoryInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getById($employeeId);
+
+    /**
+     * function to return array of objects
+     *
+     * @return array
+     * @throws NoSuchEntityException
+     */
+    public function getDetails();
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getEmployeedetails($id);
 }
