@@ -14,7 +14,7 @@ use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\App\RequestInterface;
 
-class Index implements ActionInterface
+class Joinlist implements ActionInterface
 {
     /**
      * @var EmployeeInfoRepositoryInterface
@@ -37,14 +37,14 @@ class Index implements ActionInterface
      * @param RequestInterface $request
      */
     public function __construct(
-        EmployeeInfoRepositoryInterface $employeeInfoRepository,
-        JsonFactory $resultJsonFactory,
-        RequestInterface $request
-    ) {
-        $this->employeeInfoRepository = $employeeInfoRepository;
-        $this->resultJsonFactory = $resultJsonFactory;
-        $this->request = $request;
-    }
+    EmployeeInfoRepositoryInterface $employeeInfoRepository,
+    JsonFactory $resultJsonFactory,
+    RequestInterface $request
+) {
+    $this->employeeInfoRepository = $employeeInfoRepository;
+    $this->resultJsonFactory = $resultJsonFactory;
+    $this->request = $request;
+}
 
     /**
      * Execute Method
@@ -53,10 +53,10 @@ class Index implements ActionInterface
      * @throws NoSuchEntityException
      */
     public function execute()
-    {
-        $emp_id = $this->request->getParam('id');
-        $employee = $this->employeeInfoRepository->getById($emp_id);
-        $resultJson = $this->resultJsonFactory->create();
-            return $resultJson->setData($employee);
-    }
+{
+    $emp_id = $this->request->getParam('id');
+    $employee= $this->employeeInfoRepository->getEmployeedetails($emp_id);
+    $resultJson = $this->resultJsonFactory->create();
+    return $resultJson->setData($employee);
+}
 }
