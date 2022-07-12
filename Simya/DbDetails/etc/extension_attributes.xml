@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Simya\DbDetails\Api\Data\EmployeeInfoInterface">
+        <attribute code="emp_address" type="Simya\DbDetails\Api\Data\EmpAddressInterface[]" />
+    </extension_attributes>
+</config>
