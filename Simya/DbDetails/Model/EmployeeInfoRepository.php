@@ -9,9 +9,10 @@ declare(strict_types=1);
 namespace Simya\DbDetails\Model;
 
 use Simya\DbDetails\Api\EmployeeInfoRepositoryInterface;
+use Simya\DbDetails\Api\Data\EmployeeInfoInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Simya\DbDetails\Model\EmployeeInfoFactory as EmployeeInfoFactory;
-use Simya\DbDetails\Model\ResourceModel\EmployeeInfo\CollectionFactory;
+use Simya\DbDetails\Api\Data\EmployeeInfoInterfaceFactory;
 use Magento\Framework\App\ResourceConnection;
 
 class EmployeeInfoRepository implements EmployeeInfoRepositoryInterface
@@ -32,24 +33,28 @@ class EmployeeInfoRepository implements EmployeeInfoRepositoryInterface
      */
     public function __construct(
         EmployeeInfoFactory $employeeInfoFactory,
-        CollectionFactory $employeeCollectionFactory,
+        EmployeeInfoInterfaceFactory $employeeInfo,
         ResourceConnection $resourceConnection
     ) {
         $this->_employeeInfoFactory = $employeeInfoFactory;
-        $this->employeeCollectionFactory = $employeeCollectionFactory;
         $this->resourceConnection = $resourceConnection;
+        $this->employeeInfo = $employeeInfo;
     }
 
     /**
      * Gets the EmployeeDetails data by Id
      *
      * @param  int $empId
-     * @return mixed
+     * @return EmployeeInfoInterface
      * @throws NoSuchEntityException
      */
     public function getById($empId)
     {
-        return $this->_employeeInfoFactory->create()->load($empId, 'emp_id');
+        $employeeModel = $this->_employeeInfoFactory->create()->load($empId, 'emp_id');
+        $employeeData = $this->employeeInfo->create();
+        $employeeData = $employeeData->setEmpId($employeeModel->getEmpId());
+        $employeeData = $employeeData->setEmpName($employeeModel->getEmpName());
+        return $employeeData;
     }
 
     /**

@@ -8,17 +8,19 @@ declare(strict_types=1);
 
 namespace Simya\DbDetails\Api;
 
+use Simya\DbDetails\Api\Data\EmployeeInfoInterface;
+
 interface EmployeeInfoRepositoryInterface
 {
 
     /**
      * Get info about Employee by employee id
      *
-     * @param  int $employeeId
-     * @return mixed
+     * @param  int $empId
+     * @return EmployeeInfoInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getById($employeeId);
+    public function getById($empId);
 
     /**
      * function to return array of objects
