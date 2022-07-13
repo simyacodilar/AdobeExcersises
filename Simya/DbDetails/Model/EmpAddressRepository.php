@@ -35,7 +35,7 @@ class EmpAddressRepository implements EmpAddressRepositoryInterface
     ) {
         $this->collectionFactory = $collectionFactory;
         $this->EmpAddressFactory = $addressFactory;
-        $this->resourceModel = $resourceModel;
+        $this->resourceModel = $resourceModel;;
     }
 
     /**

@@ -3,4 +3,7 @@
     <extension_attributes for="Simya\DbDetails\Api\Data\EmployeeInfoInterface">
         <attribute code="emp_address" type="Simya\DbDetails\Api\Data\EmpAddressInterface[]" />
     </extension_attributes>
+    <extension_attributes for="Simya\DbDetails\Api\Data\EmpAddressInterface">
+        <attribute code="employee" type="Simya\DbDetails\Api\Data\EmployeeInfoInterface"/>
+    </extension_attributes>
 </config>

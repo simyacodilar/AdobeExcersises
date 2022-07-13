@@ -27,6 +27,22 @@ class EmpAddress extends AbstractExtensibleModel implements EmpAddressInterface
     /**
      * @inheritDoc
      */
+    public function getEmpId()
+    {
+        return $this->_getData(self::EMPLID);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setEmpId($empId)
+    {
+        return $this->setData(self::EMPLID, $empId);
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getAddress()
     {
         return $this->_getData(self::ADDRESS);

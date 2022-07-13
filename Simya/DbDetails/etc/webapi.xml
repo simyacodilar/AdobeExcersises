@@ -6,4 +6,10 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
+    <route method="GET" url="/V1/address/details/:id">
+        <service class="Simya\DbDetails\Api\EmpAddressRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
 </routes>
