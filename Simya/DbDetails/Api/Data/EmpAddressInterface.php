@@ -8,12 +8,13 @@ declare(strict_types=1);
 
 namespace Simya\DbDetails\Api\Data;
 
-Interface EmpAddressInterface extends \Magento\Framework\Api\ExtensibleDataInterface
+    Interface EmpAddressInterface extends \Magento\Framework\Api\ExtensibleDataInterface
 {
     /**
      * Constants for keys of data array.
      */
     public  const ID = 'id';
+    public const EMPLID = 'emp_id';
     public const ADDRESS = 'address';
     /**
      * Gets the Id.
@@ -29,6 +30,21 @@ Interface EmpAddressInterface extends \Magento\Framework\Api\ExtensibleDataInter
      * @return int
      */
     public function setId($Id);
+        /**
+         * Gets the Employee Id.
+         *
+         * @api
+         * @return int
+         */
+        public function getEmpId();
+        /**
+         * Sets the EmpId.
+         *
+         * @param  int $empId
+         * @return int
+         */
+        public function setEmpId($empId);
+
     /**
      * Gets the Address
      *
