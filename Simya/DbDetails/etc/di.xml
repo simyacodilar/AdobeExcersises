@@ -8,5 +8,10 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Simya\DbDetails\Api\Data\EmployeeInfoInterface" type="Simya\DbDetails\Model\EmployeeInfo" />
+    <preference for="Simya\DbDetails\Api\Data\EmpAddressInterface" type="Simya\DbDetails\Model\EmpAddress" />
     <preference for="Simya\DbDetails\Api\EmployeeInfoRepositoryInterface" type="Simya\DbDetails\Model\EmployeeInfoRepository"/>
+    <preference for="Simya\DbDetails\Api\EmpAddressRepositoryInterface" type="Simya\DbDetails\Model\EmpAddressRepository" />
+    <type name="Simya\DbDetails\Api\EmployeeInfoRepositoryInterface">
+        <plugin name="employeeaddressload" type="Simya\DbDetails\Plugin\LoadEmployeeAddress" />
+    </type>
 </config>

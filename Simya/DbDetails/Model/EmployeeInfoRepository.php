@@ -14,6 +14,7 @@ use Magento\Framework\Exception\NoSuchEntityException;
 use Simya\DbDetails\Model\EmployeeInfoFactory as EmployeeInfoFactory;
 use Simya\DbDetails\Api\Data\EmployeeInfoInterfaceFactory;
 use Magento\Framework\App\ResourceConnection;
+use Simya\DbDetails\Model\ResourceModel\EmployeeInfo as ResourceModel;
 
 class EmployeeInfoRepository implements EmployeeInfoRepositoryInterface
 {
@@ -22,23 +23,27 @@ class EmployeeInfoRepository implements EmployeeInfoRepositoryInterface
      * @var Simya\DbDetails\Model\EmployeeInfoFactory $employeeInfoFactory
      */
     protected $employeeInfoFactory;
+
     /**
-     * @var ResourceConnection
+     * @var ResourceModel
      */
-    private ResourceConnection $resourceConnection;
+    private ResourceModel $resourceModel;
 
     /**
      * @param EmployeeInfoFactory $employeeInfoFactory
      * @param ResourceConnection $resourceConnection
+     * @param ResourceModel $resourceModel
      */
     public function __construct(
         EmployeeInfoFactory $employeeInfoFactory,
         EmployeeInfoInterfaceFactory $employeeInfo,
-        ResourceConnection $resourceConnection
+        ResourceConnection $resourceConnection,
+        ResourceModel $resourceModel
     ) {
         $this->_employeeInfoFactory = $employeeInfoFactory;
         $this->resourceConnection = $resourceConnection;
         $this->employeeInfo = $employeeInfo;
+        $this->resourceModel = $resourceModel;
     }
 
     /**
@@ -50,11 +55,9 @@ class EmployeeInfoRepository implements EmployeeInfoRepositoryInterface
      */
     public function getById($empId)
     {
-        $employeeModel = $this->_employeeInfoFactory->create()->load($empId, 'emp_id');
-        $employeeData = $this->employeeInfo->create();
-        $employeeData = $employeeData->setEmpId($employeeModel->getEmpId());
-        $employeeData = $employeeData->setEmpName($employeeModel->getEmpName());
-        return $employeeData;
+        $employeeModel = $this->_employeeInfoFactory->create();
+        $this->resourceModel->load($employeeModel,$empId);
+        return $employeeModel;
     }
 
     /**

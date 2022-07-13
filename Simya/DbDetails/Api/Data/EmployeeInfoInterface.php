@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Simya\DbDetails\Api\Data;
 
-interface EmployeeInfoInterface
+interface EmployeeInfoInterface extends \Magento\Framework\Api\ExtensibleDataInterface
 {
     /**
      * Constants for keys of data array.
@@ -179,5 +179,20 @@ interface EmployeeInfoInterface
      * @return string
      */
     public function setIsActive($isactive);
+
+    /**
+     * Retrieve existing extension attributes object or create a new one.
+     *
+     * @return \Simya\DbDetails\Api\Data\EmployeeInfoExtensionInterface|null
+     */
+    public function getExtensionAttributes();
+
+    /**
+     * Set an extension attributes object.
+     *
+     * @param \Simya\DbDetails\Api\Data\EmployeeInfoExtensionInterface $extensionAttributes
+     * @return $this
+     */
+    public function setExtensionAttributes(\Simya\DbDetails\Api\Data\EmployeeInfoExtensionInterface $extensionAttributes);
 
 }
