@@ -2,11 +2,12 @@
 
 namespace Simya\DbDetails\Model;
 
-use Magento\Framework\Model\AbstractModel;
+use Magento\Framework\Model\AbstractExtensibleModel;
 use Simya\DbDetails\Model\ResourceModel\EmpAddress as ResourceModel;
 use Simya\DbDetails\Api\Data\EmpAddressInterface;
+use Simya\DbDetails\Api\Data\EmpAddressExtensionInterface;
 
-class EmpAddress extends AbstractModel implements EmpAddressInterface
+class EmpAddress extends AbstractExtensibleModel implements EmpAddressInterface
 {
     /**
      * @var string
@@ -37,5 +38,19 @@ class EmpAddress extends AbstractModel implements EmpAddressInterface
     public function setAddress($address)
     {
         return $this->setData(self::ADDRESS, $address);
+    }
+    /**
+     * @inheritDoc
+     */
+    public function getExtensionAttributes()
+    {
+        return $this->_getExtensionAttributes();
+    }
+    /**
+     * @inheritDoc
+     */
+    public function setExtensionAttributes(EmpAddressExtensionInterface $extensionAttributes)
+    {
+        return $this->_setExtensionAttributes($extensionAttributes);
     }
 }

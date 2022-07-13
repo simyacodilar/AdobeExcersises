@@ -10,6 +10,7 @@ namespace Simya\DbDetails\Model;
 use Magento\Framework\Model\AbstractExtensibleModel;
 use Simya\DbDetails\Api\Data\EmployeeInfoInterface;
 use Simya\DbDetails\Model\ResourceModel\EmployeeInfo as EmployeeResource;
+use Simya\DbDetails\Api\Data\EmployeeInfoExtensionInterface;
 
 class EmployeeInfo extends AbstractExtensibleModel implements EmployeeInfoInterface
 {
@@ -147,7 +148,7 @@ class EmployeeInfo extends AbstractExtensibleModel implements EmployeeInfoInterf
      */
     public function setEmpJoin($empjoin)
     {
-        return $this->setData(self::EMP_JOIN_AT, $empsal);
+        return $this->setData(self::EMP_JOIN_AT, $empjoin);
     }
 
     /**
@@ -196,5 +197,21 @@ class EmployeeInfo extends AbstractExtensibleModel implements EmployeeInfoInterf
     public function setIsActive($isactive)
     {
         return $this->setData(self::ISACTIVE, $isactive);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getExtensionAttributes()
+    {
+        return $this->_getExtensionAttributes();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setExtensionAttributes(EmployeeInfoExtensionInterface $extensionAttributes)
+    {
+        return $this->_setExtensionAttributes($extensionAttributes);
     }
 }
