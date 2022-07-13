@@ -17,6 +17,5 @@ class EmpAddress extends AbstractDb
     protected function _construct()
     {
         $this->_init('employee_address', 'id');
-        $this->_useIsObjectNew = true;
     }
 }
