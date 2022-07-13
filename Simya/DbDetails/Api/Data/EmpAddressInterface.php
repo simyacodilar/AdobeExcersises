@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Simya\DbDetails\Api\Data;
 
-    Interface EmpAddressInterface extends \Magento\Framework\Api\ExtensibleDataInterface
+Interface EmpAddressInterface extends \Magento\Framework\Api\ExtensibleDataInterface
 {
     /**
      * Constants for keys of data array.
