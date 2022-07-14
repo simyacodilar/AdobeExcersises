@@ -6,7 +6,9 @@
 
 namespace Simya\DbDetails\Api;
 
-Interface EmpAddressRepositoryInterface
+use Simya\DbDetails\Api\Data\EmpAddressInterface;
+
+interface EmpAddressRepositoryInterface
 {
     /**
      * Get address by empId
