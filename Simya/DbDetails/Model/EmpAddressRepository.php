@@ -6,7 +6,6 @@ use Simya\DbDetails\Api\Data\EmpAddressInterface;
 use Magento\Framework\Api\FilterBuilder;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Api\SearchCriteriaBuilder;
-use Simya\DbDetails\Api\Data\AddressSearchResultsInterface;
 use Simya\DbDetails\Api\Data\AddressSearchResultsInterfaceFactory;
 use Simya\DbDetails\Model\ResourceModel\EmpAddress\CollectionFactory;
 use Simya\DbDetails\Model\EmpAddressFactory;

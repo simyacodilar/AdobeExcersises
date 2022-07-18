@@ -1,0 +1,46 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Simya\DbDetails\Block\View $block */
+$employee = $block->getEmployee();
+?>
+<h2>Add New Employee</h2>
+<form action="<?= $block->getActionUrl() ?>" method="post">
+    <label for="name">Employee Name:</label><br>
+    <input type="text" id="name" name="name" value="<?= !empty($employee) ? $employee->getEmpName() : ''?>"><br>
+
+    <label for="address">Employee Address:</label><br>
+    <input type="text" id="address" name="address" value="<?= !empty($employee) ? $employee->getEmpAddress() : ''?>"><br>
+
+    <label for="dob">Employee DOB:</label><br>
+    <input type="text" id="dob" name="dob" value="<?= !empty($employee) ? $employee->getEmpDob() : ''?>"><br>
+
+    <label for="is_active">Is Active:</label><br>
+    <label for="is_active">Active</label>
+    <input type="radio" id="is_active" name="is_active" value="1" <?php echo (!empty($employee) && $employee->getIsActive()) ? "checked" : ''  ?> >
+    <label for="is_active">Not Active:</label>
+    <input type="radio" id="is_active" name="is_active" value="0" <?php echo ( !empty($employee) && !$employee->getIsActive()) ? "checked" : ''  ?> ><br>
+
+    <label for="email"> Employee Email:</label><br>
+    <input type="text" id="email" name="email" value="<?= !empty($employee) ?
+        $employee->getEmpEmail() : ''?>"><br>
+
+    <label for="phone">Phone Number:</label><br>
+    <input type="text" id="phone" name="phone" value="<?= !empty($employee) ?
+        $employee->getEmpPhn() : ''?>"><br>
+    <label for="join">joining Date:</label><br>
+    <input type="text" id="join" name="join" value="<?= !empty($employee) ?
+        $employee->getEmpJoin() : ''?>"><br>
+    <label for="salary">Salary:</label><br>
+    <input type="text" id="salary" name="salary" value="<?= !empty($employee) ?
+        $employee->getEmpSalary() : ''?>"><br>
+    <label for="insurance">Insurance:</label><br>
+    <input type="text" id="insurance" name="insurance" value="<?= !empty($employee) ?
+        $employee->getEmpInsurance() : ''?>"><br><br>
+    <input type="hidden" name ="id" value="<?= $block->getRequest()->getParam('id') ?>">
+    <input type="submit" value="Submit">
+</form>
+

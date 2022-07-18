@@ -8,92 +8,125 @@ declare(strict_types=1);
 
 namespace Simya\DbDetails\Model;
 
-use Simya\DbDetails\Api\EmployeeInfoRepositoryInterface;
+use Magento\Framework\Api\SearchCriteriaInterface;
 use Simya\DbDetails\Api\Data\EmployeeInfoInterface;
-use Magento\Framework\Exception\NoSuchEntityException;
-use Simya\DbDetails\Model\EmployeeInfoFactory as EmployeeInfoFactory;
-use Simya\DbDetails\Api\Data\EmployeeInfoInterfaceFactory;
-use Magento\Framework\App\ResourceConnection;
+use Simya\DbDetails\Api\EmployeeInfoRepositoryInterface;
+use Simya\DbDetails\Api\Data\EmployeeSearchResultsInterface;
 use Simya\DbDetails\Model\ResourceModel\EmployeeInfo as ResourceModel;
+use Simya\DbDetails\Model\EmployeeInfoFactory as EmployeeInfoFactory;
+use Simya\DbDetails\Model\ResourceModel\EmployeeInfo\CollectionFactory;
+use Simya\DbDetails\Model\ResourceModel\EmployeeInfo\Collection;
+use Magento\Framework\App\ResourceConnection;
+use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
+use Simya\DbDetails\Api\Data\EmployeeSearchResultsInterfaceFactory;
+
 
 class EmployeeInfoRepository implements EmployeeInfoRepositoryInterface
 {
-
-    /**
-     * @var Simya\DbDetails\Model\EmployeeInfoFactory $employeeInfoFactory
-     */
-    protected $employeeInfoFactory;
-
     /**
      * @var ResourceModel
      */
-    private ResourceModel $resourceModel;
+    private ResourceModel $resouceModel;
+    /**
+     * @var EmployeeInfoFactory
+     */
+    private EmployeeInfoFactory $employeeInfoFactory;
+    /**
+     * @var CollectionFactory
+     */
+    private CollectionFactory $collectionfactory;
 
     /**
-     * @param EmployeeInfoFactory $employeeInfoFactory
-     * @param ResourceConnection $resourceConnection
+     * @var ResourceConnection
+     */
+    private ResourceConnection $resourceConnection;
+    /**
+     * @var CollectionProcessorInterface
+     */
+    private CollectionProcessorInterface $collectionProcessor;
+    /**
+     * @var EmployeeSearchResultsInterfaceFactory
+     */
+    private EmployeeSearchResultsInterfaceFactory $employeeSearchResultsInterfaceFactory;
+    /**
+     * @var Collection
+     */
+    private Collection $collection;
+
+    /**
+     * SachinEntityRepository constructor.
+     *
      * @param ResourceModel $resourceModel
+     * @param EmployeeInfoFactory $employeeInfoFactory
+     * @param CollectionFactory $collectionfactory
+     * @param ResourceConnection $resourceConnection
+     * @param CollectionProcessorInterface $collectionProcessor
+     * @param Collection $collection
+     * @param EmployeeSearchResultsInterfaceFactory $employeeSearchResultsInterfaceFactory
      */
     public function __construct(
+        ResourceModel $resourceModel,
         EmployeeInfoFactory $employeeInfoFactory,
-        EmployeeInfoInterfaceFactory $employeeInfo,
+        CollectionFactory $collectionfactory,
         ResourceConnection $resourceConnection,
-        ResourceModel $resourceModel
+        CollectionProcessorInterface $collectionProcessor,
+        Collection $collection,
+        EmployeeSearchResultsInterfaceFactory $employeeSearchResultsInterfaceFactory
     ) {
-        $this->_employeeInfoFactory = $employeeInfoFactory;
+        $this->resouceModel = $resourceModel;
+        $this->employeeInfoFactory = $employeeInfoFactory;
+        $this->collectionfactory = $collectionfactory;
         $this->resourceConnection = $resourceConnection;
-        $this->employeeInfo = $employeeInfo;
-        $this->resourceModel = $resourceModel;
+        $this->collectionProcessor = $collectionProcessor;
+        $this->employeeSearchResultsInterfaceFactory = $employeeSearchResultsInterfaceFactory;
+        $this->collection = $collection;
     }
 
+
     /**
-     * Gets the EmployeeDetails data by Id
-     *
-     * @param  int $empId
-     * @return EmployeeInfoInterface
-     * @throws NoSuchEntityException
+     * @inheritDoc
      */
-    public function getById($empId)
+    public function getById(string $empId)
     {
-        $employeeModel = $this->_employeeInfoFactory->create();
-        $this->resourceModel->load($employeeModel,$empId);
+        $employeeModel = $this->employeeInfoFactory->create();
+        $this->resourceModel->load($employeeModel, $empId);
         return $employeeModel;
     }
 
     /**
-     * function to return array of objects
-     *
-     * @return array
-     * @throws NoSuchEntityException
+     * @inheritDoc
      */
-    public function getDetails($id)
+    public function deleteById($empId)
     {
-        $employeeModel = $this->_employeeInfoFactory->create();
-        $this->resourceModel->load($employeeModel,$id);
-        return $employeeModel;
-
+        $employee = $this->employeeInfoFactory->create();
+        $this->resouceModel->load($employee, $empId);
+        return $this->resouceModel->delete($employee);
     }
 
     /**
-     * @param $id
-     * @return mixed
+     * @inheritDoc
      */
-    public function getEmployeedetails($id){
-        $connection = $this->resourceConnection->getConnection();
-        $select = $connection->select()
-            ->from(
-                ['main_table' => 'employee_info'],
-                [
-                    'main_table.*',
-                    'address_table.address'
-                ]
-            )
-            ->join(
-                ['address_table' => 'employee_address'],
-                'main_table.emp_id = address_table.emp_id'
-            )->where('main_table.emp_id = ?', $id);
-
-        return $connection->fetchAll($select);
+    public function save(EmployeeInfoInterface $employee)
+    {
+        try {
+            $this->resouceModel->save($employee);
+            return true;
+        } catch (\Exception $exception) {
+            return false;
+        }
     }
 
+    /**
+     * @inheritDoc
+     */
+    public function getList(SearchCriteriaInterface $searchCriteria)
+    {
+        $collection = $this->collectionfactory->create();
+        $this->collectionProcessor->process($searchCriteria, $collection);
+        $searchResults = $this->employeeSearchResultsInterfaceFactory->create();
+        $searchResults->setSearchCriteria($searchCriteria);
+        $searchResults->setTotalCount($collection->getSize());
+        $searchResults->setItems($collection->getItems());
+        return $searchResults;
+    }
 }

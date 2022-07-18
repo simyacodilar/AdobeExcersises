@@ -1,0 +1,43 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Simya\DbDetails\Block\View $block */
+
+$employees = $block->getEmployees()->getItems();
+?>
+<a href="<?= $block->getAddUrl(); ?>">create New Employee</a>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Dob</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Joining Date</th>
+        <th>Salary</th>
+        <th>Insurance</th>
+        <th>Is Active</th>
+    </tr>
+    <?php foreach ($employees as $employee) {?>
+        <tr>
+            <td><?= $employee->getEmpId(); ?></td>
+            <td><?= $employee->getEmpName(); ?></td>
+            <td><?= $employee->getEmpAddress(); ?></td>
+            <td><?= $employee->getEmpDob(); ?></td>
+            <td><?= $employee->getEmpEmail(); ?></td>
+            <td><?= $employee->getEmpPhn(); ?></td>
+            <td><?= $employee->getEmpJoin(); ?></td>
+            <td><?= $employee->getEmpSalary();?></td>
+            <td><?= $employee->getEmpInsurance();?></td>
+            <td><?= ($employee->getIsActive()) ? "Active" : "not Active" ?></td>
+            <td> <a href="<?= $block->getFormUrl();echo 'id/'.$employee->getEmpId()?>">Edit</a></td>
+            <td> <a style="color: #bd0d0d" href="<?= $block->getDeleteUrl();echo 'id/'.$employee->getEmpId();?>">Delete</a></td>
+        </tr>
+    <?php } ?>
+</table>
+
