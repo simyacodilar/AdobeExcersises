@@ -12,6 +12,7 @@
     <preference for="Simya\DbDetails\Api\EmployeeInfoRepositoryInterface" type="Simya\DbDetails\Model\EmployeeInfoRepository"/>
     <preference for="Simya\DbDetails\Api\EmpAddressRepositoryInterface" type="Simya\DbDetails\Model\EmpAddressRepository" />
     <preference for="Simya\DbDetails\Api\Data\AddressSearchResultsInterface" type="Simya\DbDetails\Model\AddressSearchResults"/>
+    <preference for="Simya\DbDetails\Api\Data\EmployeeSearchResultsInterface" type="Simya\DbDetails\Model\EmployeeSearchResults"/>
     <type name="Simya\DbDetails\Api\EmployeeInfoRepositoryInterface">
         <plugin name="employeeaddressload" type="Simya\DbDetails\Plugin\LoadEmployeeAddress"/>
     </type>

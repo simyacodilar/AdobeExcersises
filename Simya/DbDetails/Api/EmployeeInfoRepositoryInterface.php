@@ -1,39 +1,46 @@
 <?php
 /**
- * Copyright © Magento, Inc. All rights reserved.
+ *
+ * Copyright © Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
-declare(strict_types=1);
-
 namespace Simya\DbDetails\Api;
 
+use Magento\Framework\Api\SearchCriteriaInterface;
 use Simya\DbDetails\Api\Data\EmployeeInfoInterface;
 
 interface EmployeeInfoRepositoryInterface
 {
-
     /**
-     * Get info about Employee by employee id
+     * Get employee by id
      *
-     * @param  int $empId
+     * @param string $empId
      * @return EmployeeInfoInterface
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getById($empId);
+    public function getById(string $empId);
 
     /**
-     * function to return array of objects
+     * Delete employee by id
      *
-     * @param  int $id
-     * @return EmployeeInfoInterface
-     * @throws NoSuchEntityException
-     */
-    public function getDetails($id);
-
-    /**
-     * @param $id
+     * @param string $empId
      * @return mixed
      */
-    public function getEmployeedetails($id);
+    public function deleteById($empId);
+
+    /**
+     * Save
+     *
+     * @param EmployeeInfoInterface $employee
+     * @return boolean
+     */
+    public function save(EmployeeInfoInterface $employee);
+
+    /**
+     * Get List
+     *
+     * @param SearchCriteriaInterface $searchCriteria
+     * @return \Simya\DbDetails\Api\Data\EmployeeSearchResultsInterface
+     */
+    public function getList(SearchCriteriaInterface $searchCriteria);
+
 }
