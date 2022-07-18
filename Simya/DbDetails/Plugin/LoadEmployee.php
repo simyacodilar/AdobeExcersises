@@ -48,7 +48,7 @@ class LoadEmployee
     {
         $extensionAttributes = $result->getExtensionAttributes();
         $addressExtension = $extensionAttributes ? $extensionAttributes : $this->empAddressExtensionFactory->create();
-        $emp_dtls = $this->employeeInfoRepositoryInterface->getById(1);
+        $emp_dtls = $this->employeeInfoRepositoryInterface->getDetails($result->getEmpId());
         $addressExtension->setEmployee($emp_dtls);
         return $result->setExtensionAttributes($addressExtension);
     }

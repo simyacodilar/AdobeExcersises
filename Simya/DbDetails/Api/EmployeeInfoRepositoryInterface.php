@@ -25,10 +25,11 @@ interface EmployeeInfoRepositoryInterface
     /**
      * function to return array of objects
      *
-     * @return array
+     * @param  int $id
+     * @return EmployeeInfoInterface
      * @throws NoSuchEntityException
      */
-    public function getDetails();
+    public function getDetails($id);
 
     /**
      * @param $id
