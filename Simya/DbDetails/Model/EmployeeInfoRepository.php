@@ -66,11 +66,11 @@ class EmployeeInfoRepository implements EmployeeInfoRepositoryInterface
      * @return array
      * @throws NoSuchEntityException
      */
-    public function getDetails()
+    public function getDetails($id)
     {
-        $data1= $this->getById(1);
-        $data2= $this->getById(2);
-        return [$data1->getData(),$data2->getData()];
+        $employeeModel = $this->_employeeInfoFactory->create();
+        $this->resourceModel->load($employeeModel,$id);
+        return $employeeModel;
 
     }
 

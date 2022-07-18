@@ -10,13 +10,6 @@ use Simya\DbDetails\Api\Data\EmpAddressInterface;
 
 interface EmpAddressRepositoryInterface
 {
-    /**
-     * Get address by empId
-     *
-     * @param string $empId
-     * @return EmpAddressInterface[]|null
-     */
-    public function getByEmployeeId($empId);
 
     /**
      * Get address by id
@@ -25,4 +18,18 @@ interface EmpAddressRepositoryInterface
      * @return EmpAddressInterface
      */
     public function getById($id);
+    /**
+     * @param \Magento\Framework\Api\SearchCriteriaInterface $searchCriteria
+     * @return \Simya\DbDetails\Api\Data\AddressSearchResultsInterface
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
+    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria);
+
+    /**
+     * Get Address using employee Id
+     *
+     * @param $empId
+     * @return EmpAddressInterface[]|null
+     */
+    public function getAddressByEmployee($empId);
 }
