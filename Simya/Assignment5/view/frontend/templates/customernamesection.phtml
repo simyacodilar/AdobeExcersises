@@ -1,0 +1,23 @@
+<div class="customsection"data-bind="scope: 'section'">
+    <p data-bind="text: customsection().fullname"></p>
+</div>
+<style>
+    .customsection {
+        color: #b73aa7;
+        font-size: 18px;
+        font-weight: 700;
+    }
+</style>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "section": {
+                        "component": "Simya_Assignment5/js/section"
+                    }
+                }
+            }
+        }
+    }
+</script>
