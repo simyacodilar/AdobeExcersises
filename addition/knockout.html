@@ -3,22 +3,19 @@
 <head>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
     <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="ko-init.js"></script>
 </head>
 <body>
 <!-- File: page.html -->
 <div id="main">
-    <p>Input 1</p> <br>
-    <input type="text" data-bind="value:theValue1"/>
-    <p>Input 2</p> <br>
-    <input type="text" data-bind="value:theValue2"/>
+    <input type="text" data-bind="value:Value1"/>
+    <input type="text" data-bind="value:Value2"/>
 
     <div>
         <br/><br/>
-        <button id="button">Add</button>
+        <button type="submit" data-bind="click:calculateSum">Get Sum</button>
     </div>
-    <p>Result</p>
-    <input data-bind="value:theValue">
+    <p>Sum</p>
+    <input data-bind="value:Sum">
 </div>
 </body>
 </html>
@@ -26,15 +23,15 @@
     jQuery(function(){
         var viewModelConstructor = function()
         {
-            this.theValue1 = ko.observable("");
-            this.theValue2 = ko.observable("");
-            this.theValue =  ko.computed(function () {
-                return Number(this.theValue1()) + Number(this.theValue2())
-            }, this);
+            this.Value1 = ko.observable("");
+            this.Value2 = ko.observable("");
+            this.Sum = ko.observable(0);
+            this.calculateSum=function(){
+                this.Sum(Number(this.Value1()) + Number(this.Value2()));
+            }
         }
-
-        window.viewModel = new viewModelConstructor;
-        ko.applyBindings(window.viewModel);
+        var viewModel = new viewModelConstructor;
+        ko.applyBindings(viewModel);
     });
 </script>
 
