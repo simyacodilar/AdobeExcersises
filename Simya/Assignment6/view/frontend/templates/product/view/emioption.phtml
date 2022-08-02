@@ -2,13 +2,14 @@
 $viewmodel = $block->getViewModel();
 $id = $block->getRequest()->getParam('id');
 $viewmodel->getProductPrice($id);
+if($viewmodel->getIsLoggedIn()) :
 ?>
-
 <div data-block="dropdown" class="minicart-wrapper" data-bind="scope: 'emi_options'">
     EMI starts at <span data-bind="text:startEmi"></span><a class="action" data-trigger="trigger">
         <span data-bind="i18n: 'EMI options'"></span>
     </a>
 </div>
+
 <div class="block block-minicart"
      data-mage-init='{
         "dropdownDialog": {
@@ -65,3 +66,4 @@ $viewmodel->getProductPrice($id);
     }
 
 </script>
+<?php endif; ?>
